@@ -2,7 +2,9 @@ const axios = require('axios');
 const { response } = require('express');
 const config = require('./../config/config');
 
-const peopleURL = `${config.odataURL}/${config.odataKey}/people`;
+const peopleURL = `${config.odataURL}/people`;
+const peopleURLWithKey = `${config.odataURL}/${config.odataKey}/people`;
+const headers = { 'Content-Type': 'application/json' };
 
 module.exports = {
     getPeopleData: () => new Promise(async (resolve, reject) => {
@@ -160,6 +162,49 @@ module.exports = {
             reject({
                 statusCode: err.response.status || 500,
                 errorMessage: `Error searching people with '${q}': ${err}`
+            });
+        }
+    }),
+
+    createPeople: (body) => new Promise(async (resolve, reject) => {
+        // validations to do
+
+        try {
+            const response = await axios.post(peopleURLWithKey, body, { headers });
+            resolve({ response: response.data });
+        } catch (err) {
+            reject({
+                statusCode: err.response.status || 500,
+                errorMessage: `Error fetching people details: ${err}`
+            });
+        }
+    }),
+
+    updatePeople: (userName, body) => new Promise(async (resolve, reject) => {
+        // validations to do
+
+        try {
+            const response = await axios.post(`${peopleURLWithKey}('${userName}')`, body, { headers });
+            delete response.data['@odata.context'];
+            resolve({ response: response.data });
+        } catch (err) {
+            reject({
+                statusCode: err.response.status || 500,
+                errorMessage: `Error fetching people details: ${err}`
+            });
+        }
+    }),
+
+    removePeople: (userName) => new Promise(async (resolve, reject) => {
+        // validations to do
+
+        try {
+            const response = await axios.post(peopleURLWithKey, body, { headers });
+            resolve({ response: response.data });
+        } catch (err) {
+            reject({
+                statusCode: err.response.status || 500,
+                errorMessage: `Error fetching people details: ${err}`
             });
         }
     })

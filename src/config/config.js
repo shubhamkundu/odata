@@ -1,4 +1,6 @@
 module.exports = {
+    auth: process.env.AUTH.toLowerCase() === 'true',
+    apiAuthKey: process.env.API_AUTH_KEY || '',
     odataURL: process.env.ODATA_URL || '',
     odataKey: process.env.ODATA_KEY || '',
     filterTypeEqual: process.env.FILTER_TYPE_EQUAL || 'equal',
