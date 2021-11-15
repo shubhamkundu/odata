@@ -1,3 +1,3 @@
-module.exports = {
-    people: require('./people.service')
-};
+module.exports = ({ appCache }) => ({
+    people: require('./people.service')({ appCache })
+});

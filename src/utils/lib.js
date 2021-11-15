@@ -26,5 +26,14 @@ const self = module.exports = {
                     )
                     : err.stack
             });
-    }
+    },
+
+    parseIntegerFrom: (val) => {
+        const n = parseInt(val);
+        if (!isNaN(n)) {
+            return n;
+        }
+    },
+
+    parseBooleanFrom: (val) => val.toLowerCase().trim() === 'true'
 };

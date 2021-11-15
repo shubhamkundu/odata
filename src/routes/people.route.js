@@ -1,7 +1,6 @@
-const service = require('./../services/index');
 const { handleResponseDefault, handleAPIError } = require('./../utils/lib');
 
-module.exports = ({ app }) => {
+module.exports = ({ app, service }) => {
     app.get('/people', (req, res) => {
         service.people.getPeopleData()
             .then(handleResponseDefault.bind(null, req, res))
