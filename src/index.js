@@ -8,8 +8,8 @@ if (auth) {
     }
 }
 
-    // import dependencies
-    const express = require('express');
+// import dependencies
+const express = require('express');
 const cors = require('cors');
 
 // import local dependencies
