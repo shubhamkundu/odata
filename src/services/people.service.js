@@ -204,46 +204,46 @@ module.exports = ({ appCache }) => ({
         }
     }),
 
-    createPeople: (body) => new Promise(async (resolve, reject) => {
-        // validations to do
+    // createPeople: (body) => new Promise(async (resolve, reject) => {
+    //     // validations to do
 
-        try {
-            const response = await axios.post(peopleURLWithKey, body, { headers });
-            resolve({ response: response.data });
-        } catch (err) {
-            reject({
-                statusCode: err.response.status || 500,
-                errorMessage: `Error fetching people details: ${err}`
-            });
-        }
-    }),
+    //     try {
+    //         const response = await axios.post(peopleURLWithKey, body, { headers });
+    //         resolve({ response: response.data });
+    //     } catch (err) {
+    //         reject({
+    //             statusCode: err.response.status || 500,
+    //             errorMessage: `Error fetching people details: ${err}`
+    //         });
+    //     }
+    // }),
 
-    updatePeople: (userName, body) => new Promise(async (resolve, reject) => {
-        // validations to do
+    // updatePeople: (userName, body) => new Promise(async (resolve, reject) => {
+    //     // validations to do
 
-        try {
-            const response = await axios.post(`${peopleURLWithKey}('${userName}')`, body, { headers });
-            delete response.data['@odata.context'];
-            resolve({ response: response.data });
-        } catch (err) {
-            reject({
-                statusCode: err.response.status || 500,
-                errorMessage: `Error fetching people details: ${err}`
-            });
-        }
-    }),
+    //     try {
+    //         const response = await axios.post(`${peopleURLWithKey}('${userName}')`, body, { headers });
+    //         delete response.data['@odata.context'];
+    //         resolve({ response: response.data });
+    //     } catch (err) {
+    //         reject({
+    //             statusCode: err.response.status || 500,
+    //             errorMessage: `Error fetching people details: ${err}`
+    //         });
+    //     }
+    // }),
 
-    removePeople: (userName) => new Promise(async (resolve, reject) => {
-        // validations to do
+    // removePeople: (userName) => new Promise(async (resolve, reject) => {
+    //     // validations to do
 
-        try {
-            const response = await axios.post(peopleURLWithKey, body, { headers });
-            resolve({ response: response.data });
-        } catch (err) {
-            reject({
-                statusCode: err.response.status || 500,
-                errorMessage: `Error fetching people details: ${err}`
-            });
-        }
-    })
+    //     try {
+    //         const response = await axios.post(peopleURLWithKey, body, { headers });
+    //         resolve({ response: response.data });
+    //     } catch (err) {
+    //         reject({
+    //             statusCode: err.response.status || 500,
+    //             errorMessage: `Error fetching people details: ${err}`
+    //         });
+    //     }
+    // })
 });
